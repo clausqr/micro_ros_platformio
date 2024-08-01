@@ -10,6 +10,8 @@ PlatformIO will handle the full build process, including dependencies, compilati
 - [micro-ROS for PlatformIO](#micro-ros-for-platformio)
   - [Supported boards](#supported-boards)
   - [Requirements](#requirements)
+    - [Platform specific requirements](#platform-specific-requirements)
+      - [MacOS](#macos)
   - [How to add to your project](#how-to-add-to-your-project)
   - [Library configuration](#library-configuration)
     - [ROS 2 distribution](#ros-2-distribution)
@@ -121,6 +123,7 @@ The transport can be configured with the `board_microros_transport = <transport>
 
     set_microros_wifi_transports(ssid, psk, agent_ip, agent_port);
     ```
+    Note: passing an empty string to `ssid` will make the library use an already configured WiFi connection.
 
   - `native_ethernet`
 

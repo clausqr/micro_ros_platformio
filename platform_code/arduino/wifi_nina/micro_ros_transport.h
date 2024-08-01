@@ -8,10 +8,14 @@ struct micro_ros_agent_locator {
 };
 
 static inline void set_microros_wifi_transports(char * ssid, char * pass, IPAddress agent_ip, uint16_t agent_port){
+
+    // if ssid is empty, skip wifi configuration and reuse the current connection
+    if (strlen(ssid) != 0) {
     while (WiFi.begin(ssid, pass) != WL_CONNECTED) {
       delay(500);
     }
-
+}
+    
     static struct micro_ros_agent_locator locator;
     locator.address = agent_ip;
     locator.port = agent_port;
